@@ -1,0 +1,8 @@
+{
+  "name": "jeeinn/ltphp",
+  "description": "light and thin",
+  "require": {
+    "php": ">=8.2",
+    "vlucas/phpdotenv": "^5.6"
+  }
+}
