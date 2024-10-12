@@ -1,5 +1,5 @@
 <?php
-namespace App\Admin\Controller;
+namespace app\admin\controller;
 
 class Index {
     public function index(): string

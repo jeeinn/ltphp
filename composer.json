@@ -4,5 +4,13 @@
   "require": {
     "php": ">=8.2",
     "vlucas/phpdotenv": "^5.6"
+  },
+  "autoload": {
+    "psr-4": {
+      "Ltphp\\": "framework/"
+    },
+    "psr-0": {
+      "Ltphp\\": "framework"
+    }
   }
 }
