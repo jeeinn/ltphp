@@ -32,9 +32,10 @@ class Boot
             self::loadFunctions();
             Config::load(); // 可以使用已定义的函数
             date_default_timezone_set(env('APP_TIMEZONE', Config::get('app.timezone')));
-            (new Router)->route();
+            $ctx = (new Router)->route();
+            var_dump(Request::all());
             Tracer::end();
-            exit(0);
+            exit($ctx);
         } catch (Exception $e) {
             echo lt_msg($e->getMessage());
             echo lt_msg($e->getTraceAsString());

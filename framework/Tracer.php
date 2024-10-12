@@ -27,8 +27,6 @@ class Tracer
     public static function end(): string
     {
         $isDebug = env('APP_DEBUG', Config::get('app.debug'));
-        // $isDebug = env('APP_DEBUG');
-        var_dump($isDebug);
         if (!$isDebug) return '';
         
         $startTraceInfo = Config::get(self::FRAMEWORK_TRACER_INFO);

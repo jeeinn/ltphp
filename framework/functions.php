@@ -1,6 +1,6 @@
 <?php
 /**
- * @description 环境变量
+ * @description 框架函数
  * @author 谢云伟 2024/10/11
  * @param string|null $name
  * @param null $default
