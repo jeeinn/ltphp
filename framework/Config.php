@@ -9,23 +9,23 @@ use Exception;
 class Config
 {
     private static array $config = [];
-    
+
     public static function get(string $key)
     {
         return self::$config[$key] ?? null;
     }
-    
+
     public static function getAll(): array
     {
         return self::$config;
     }
-    
+
     public static function set(string $key, $value)
     {
         self::$config[$key] = $value;
         return $value;
     }
-    
+
     /**
      * 写入配置，如 app.default_app
      * @throws Exception

@@ -1,13 +1,15 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Ltphp;
+
 class DefineConstant
 {
     protected static function defineSysPath(): void
     {
         $basePath = realpath(dirname(__DIR__));
-        
+
         // 根目录
         if (!defined('ROOT_PATH')) {
             define('ROOT_PATH', $basePath . DIRECTORY_SEPARATOR);
@@ -24,13 +26,13 @@ class DefineConstant
         if (!defined('RUNTIME_PATH')) {
             define('RUNTIME_PATH', $basePath . DIRECTORY_SEPARATOR . 'runtime' . DIRECTORY_SEPARATOR);
         }
-        
+
         // 外网公共目录
         if (!defined('PUBLIC_PATH')) {
             define('PUBLIC_PATH', $basePath . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR);
         }
     }
-    
+
     protected static function defineSysConstant(): void
     {
         // 是否 cli 模式
@@ -42,7 +44,7 @@ class DefineConstant
             define('IS_POST', php_sapi_name() === 'cli');
         }
     }
-    
+
     public static function define(): void
     {
         self::defineSysConstant();

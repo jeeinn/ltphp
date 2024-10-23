@@ -1,7 +1,9 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Ltphp;
+
 require_once realpath(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php';
 
 use Exception;
@@ -21,8 +23,8 @@ class Boot
             require_once $rootFunctionPath;
         }
     }
-    
-    
+
+
     public static function start(): void
     {
         try {
@@ -32,8 +34,8 @@ class Boot
             self::loadFunctions();
             Config::load(); // 可以使用已定义的函数
             date_default_timezone_set(env('APP_TIMEZONE', Config::get('app.timezone')));
-            $ctx = (new Router)->route();
-            var_dump(Request::all());
+            $ctx = (new Router())->route();
+            // var_dump(Request::all());
             Tracer::end();
             exit($ctx);
         } catch (Exception $e) {
@@ -41,6 +43,6 @@ class Boot
             echo lt_msg($e->getTraceAsString());
             Tracer::end();
         }
-        
+
     }
 }

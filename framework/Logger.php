@@ -8,7 +8,7 @@ class Logger
 {
     private string $logFile = '';
     private string $traceFile = '';
-    
+
     /**
      * @throws Exception
      */
@@ -16,7 +16,7 @@ class Logger
     {
         $logPath = RUNTIME_PATH . 'log' . DIRECTORY_SEPARATOR;
         $logFile = $logPath . date('Ym_d') . '.log';
-        
+
         $tracePath = RUNTIME_PATH . 'trace' . DIRECTORY_SEPARATOR;
         $traceFile = $tracePath . date('Ym_d') . '.log';
         // 尝试创建目录
@@ -36,7 +36,7 @@ class Logger
         $this->logFile = $logFile;
         $this->traceFile = $traceFile;
     }
-    
+
     /**
      * @description 立即写入日志
      * @author 谢云伟 2024/10/12
@@ -47,9 +47,15 @@ class Logger
      */
     public function write($msg, string $level = 'debug', string $file = ''): void
     {
-        if (empty($msg)) return;
-        if (empty($file)) $file = $this->logFile;
-        if ($level == 'trace') $file = $this->traceFile;
+        if (empty($msg)) {
+            return;
+        }
+        if (empty($file)) {
+            $file = $this->logFile;
+        }
+        if ($level == 'trace') {
+            $file = $this->traceFile;
+        }
         file_put_contents($file, $msg, FILE_APPEND);
     }
 }
